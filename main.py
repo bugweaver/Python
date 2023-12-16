@@ -805,15 +805,18 @@
 # print(slicer((1, 8, 3, 4, 8, 8, 9, 2), 8))
 # print(slicer((1, 2, 8, 5, 1, 2, 9), 8))
 
-countries = (
-    ("Германия", 80.2, (("Берлин", 3.326), ("Гамбург", 1.718))),
-    ("Франция", 66, (("Париж", 2.2), ("Марсель", 1.6)))
-)
-print(countries, end="\n\n")
+# countries = (
+#     ("Германия", 80.2, (("Берлин", 3.326), ("Гамбург", 1.718))),
+#     ("Франция", 66, (("Париж", 2.2), ("Марсель", 1.6)))
+# )
+# print(countries, end="\n\n")
+#
+# for country in countries:
+#     country_name, country_population, cities = country
+#     print("\nСтрана:", country_name, "население =", country_population)
+#     for city in cities:
+#         city_name, city_population = city
+#         print("\tГород:", city_name, "население =", city_population)
 
-for country in countries:
-    country_name, country_population, cities = country
-    print("\nСтрана:", country_name, "население =", country_population)
-    for city in cities:
-        city_name, city_population = city
-        print("\tГород:", city_name, "население =", city_population)
+
+print("Вносим изменения")
