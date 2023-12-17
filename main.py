@@ -930,9 +930,60 @@
 
 
 # Тип frozenset
-s = frozenset([1, 2, 3, 4, 5])
-print(s)
-print(type(s))
-a = frozenset({"hello", "world"})
+# s = frozenset([1, 2, 3, 4, 5])
+# print(s)
+# print(type(s))
+# a = frozenset({"hello", "world"})
 
-# Словарь
+# Словарь (dict)
+# lst = [1, 2, 3]
+# d = {'one': 1, 'two': 2, 'three': 3, 4: 'four'}
+# lst[0] = 10
+# print(lst[0])
+#
+# d['one'] = 10
+# print(d['one'])
+# print(d[4])
+
+# d = {}
+# print(d)
+# print(type(d))
+# d1 = dict(one=1, two=2)
+
+# d = {'x1': 3, 'x2': 7, 'x3': 5, 'x4': -1}
+# m = 1
+# for i in d:
+#     m *= d[i]
+#
+# print(m)
+
+
+# goods = {
+#     '1': ['Core-i3-4330', 9, 4500],
+#     '2': ['Core-i5-4670K', 3, 8500],
+#     '3': ['AMD FX-6300', 6, 3700],
+#     '4': ['Pentium G3220', 8, 2100],
+#     '5': ['Core-i5-3450', 5, 6400],
+# }
+#
+# for i in goods:
+#     print(i, ")", goods[i][0], ' - ', goods[i][1], " шт. по ", goods[i][2], 'руб', sep="")
+#
+# while True:
+#     n = input('№: ')
+#     if n != '0':
+#         qty = int(input('Количество: '))
+#     try:
+#         goods[n][1] = qty
+#     except KeyError:
+#         pass
+#     else:
+#         break
+#
+# for i in goods:
+#     print(i, ")", goods[i][0], ' - ', goods[i][1], " шт. по ", goods[i][2], 'руб', sep="")
+
+
+d = {'x1': 3, 'x2': 7, 'x3': 5, 'x4': -1}
+item = d.popitem()
+print(item)
