@@ -990,10 +990,17 @@
 
 
 # Задание 1
-vowels = set('аеёиоуыэюя')
-message = input("Введите строку: ")
-count = 0
-for i in message:
-    if i in vowels:
-        count += 1
-print("Количество гласных равно: ", count)
+# vowels = set('аеёиоуыэюя')
+# message = input("Введите строку: ")
+# count = 0
+# for i in message:
+#     if i in vowels:
+#         count += 1
+# print("Количество гласных равно: ", count)
+
+
+# Задание 2
+dict1 = {'name': 'Kelly', 'age': 25, 'salary': 8000, 'city': 'New York'}
+dict2 = {'name': dict1.pop('name'), 'salary': dict1.pop('salary')}
+print(dict1)
+print(dict2)
