@@ -984,7 +984,16 @@
 #     print(i, ")", goods[i][0], ' - ', goods[i][1], " шт. по ", goods[i][2], 'руб', sep="")
 
 
-d = {'x1': 3, 'x2': 7, 'x3': 5, 'x4': -1}
-item = d.popitem()
-print(item)
-# new
+# d = {'x1': 3, 'x2': 7, 'x3': 5, 'x4': -1}
+# item = d.popitem()
+# print(item)
+
+
+# Задание 1
+vowels = set('аеёиоуыэюя')
+message = input("Введите строку: ")
+count = 0
+for i in message:
+    if i in vowels:
+        count += 1
+print("Количество гласных равно: ", count)
