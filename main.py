@@ -1000,7 +1000,384 @@
 
 
 # Задание 2
-dict1 = {'name': 'Kelly', 'age': 25, 'salary': 8000, 'city': 'New York'}
-dict2 = {'name': dict1.pop('name'), 'salary': dict1.pop('salary')}
-print(dict1)
-print(dict2)
+# dict1 = {'name': 'Kelly', 'age': 25, 'salary': 8000, 'city': 'New York'}
+# dict2 = {'name': dict1.pop('name'), 'salary': dict1.pop('salary')}
+# print(dict1)
+# print(dict2)
+
+# d = {'a': 1, 'c': 3, 'b': 2}
+# d1 = {'r': 7, 'q': 40}
+# d. update(d1)
+# d2 = [('a', 20), ('b', 9)]
+# d.update(d2)
+# print(d)
+
+# x = {'a': 1, 'b': 2}
+# y = {'b': 3, 'c': 4}
+# z = x | y
+# # z.update(x)
+# # z.update(y)
+# print(z)
+
+# a = {
+#     'first': {
+#         1: 'one',
+#         2: 'two',
+#         3: 'three'
+#     },
+#     'second': {
+#         4: 'four',
+#         5: 'five'
+#     }
+# }
+# print(a)
+# for x in a:
+#     print(x)
+#     for y in a[x]:
+#         print('\t', y, ": ", a[x][y], sep='')
+
+
+# sales = {"John": {"N": 3056, "S": 8463, "E": 8441, "W": 2694},
+#          "Tom": {"N": 4832, "S": 6786, "E": 4737, "W": 3612},
+#          "Anne": {"N": 5239, "S": 4802, "E": 5820, "W": 1859},
+#          "Fiona": {"N": 3904, "S": 3645, "E": 8821, "W": 2451}}
+#
+# for x in sales:
+#     print(x)
+#     for y in sales[x]:
+#         print('\t', y, ": ", sales[x][y], sep='')
+
+# person = input("Имя: ")
+# region = input("Регион: ")
+# print(sales[person][region])
+# new_data = int(input("Новое значение: "))
+#
+# sales[person][region] = new_data
+# print(sales[person])
+
+
+# d = {"N": 3056, "S": 8463, "E": 8441, "W": 2694}
+# d = {value: key for key, value in d.items()}
+# print(d)
+
+
+# d = {"N": 1, "S": 2, "E": 3, "W": 4}
+# new_d = {k: v for k, v in d.items() if v <= 2}
+# print(new_d)
+
+# a = ["one", 1, 2, 3, "two", 10, 20, "three", 15, 36, 60, "four", -20]
+#
+# d = dict()
+# current_key = ""
+# for item in a:
+#
+#     if type(item) is str:
+#         d[item] = []
+#         current_key = item
+#     else:
+#         d[current_key].append(item)
+#
+# print(d)
+
+# d = dict(zip([1, 2, 3, 4], ['one', 'two', 'three']))
+# print(d)
+#
+# a = [1, 2, 3]
+# b = ['one', 'two', 'three']
+# f = {k: v for k, v in zip(a, b)}
+# print(f)
+
+
+# one = {'apple': 0.45, 'orange': 0.35}
+# two = {'pepper': 0.2, 'onion': 0.55}
+# print({**one, **two})
+
+# month = ["January", "February", "March"]
+# total_sales = [52000.00, 51000.00, 48000.00]
+# prod_cost = [46800.00, 45900.00, 43200.00]
+#
+# for sales, costs, m in zip(total_sales, prod_cost, month):
+#     profit = sales - costs
+#     print("Чистая прибыль в", m, "=", profit)
+
+
+# a = [1, 2, 3]
+# b = [*a, 4, 5, 6]
+# print(b)
+
+
+# def func(*args):
+#     return args
+#
+#
+# print(func(2))
+# print(func(2, 3, 4, "abc"))
+
+# def summa(*params):
+#     res = 0
+#     for i in params:
+#         res += i
+#     return res
+#
+#
+# print(summa(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# print(summa(3, 4, 5))
+
+
+# def to_dict(*args):
+#     return {element: element for element in args}
+#
+#
+# print(to_dict(1, 2, 3, 4))
+# print(to_dict("grey", (2, 17), 3.11, -4))
+
+
+# def num(*args):
+#     res = 0
+#     for i in args:
+#         res += i
+#     c = res / len(args)
+#     for i in args:
+#         if i < c:
+#             print(i)
+#
+#
+# print(num(1, 2, 3, 4, 5, 6, 7, 8, 9))
+# print(num(3, 6, 1, 9, 5))
+
+
+#
+# def func(**kwargs):
+#     return kwargs
+#
+#
+# print(func(a=1, b=2, c=3))
+# print(func())
+# print(func(d=9))
+
+
+# def outer(who):
+#     def inner():
+#         print("Hello,", who)
+#
+#     inner()
+#
+#
+# outer("World!")
+
+
+# def fun1():
+#     a = 6
+#
+#     def fun2(b):
+#         a = 4
+#         print(a + b)
+#
+#     print('a:', a)
+#     fun2(4)
+#
+#
+# fun1()
+# x = 25
+# t = 0
+#
+#
+# def fn():
+#     global t
+#     a = 30
+#
+#     def inner():
+#         nonlocal a
+#         a = 35
+#         print("a:", a)
+#
+#     inner()
+#     t = a
+#
+#
+# fn()
+# c = x + t
+# print(c)
+# x = 5
+#
+# def fn1():
+#     x = 25
+#
+#     def fn2():
+#         # x = 33
+#
+#         def fn3():
+#             nonlocal x
+#             x = 55
+#
+#         fn3()
+#         print("fn2.x =", x)
+#
+#     fn2()
+#     print("fn1.x =", x)
+#
+# fn1()
+
+
+# def outer(a1, b1, a2, b2):
+#     a = 0
+#     b = 0
+#
+#     def inner():
+#         nonlocal a, b
+#         a = a1 + a2
+#         b = b1 + b2
+#
+#     inner()
+#     return [a, b]
+#
+#
+# res = outer(2, 3, -1, 4)
+# print(res)
+
+
+# Замыкание
+
+# def outer(n):
+#     def inner(x):
+#         return n + x
+#
+#     return inner
+#
+#
+# item1 = outer(5)
+# print(item1(10))
+#
+# item2 = outer(5)
+# print(item1(1))
+
+
+# def func1():
+#     a = 1
+#     b = 'line'
+#     c = [1, 2, 3]
+#
+#     def func2():
+#         nonlocal a, b
+#         c.append(4)
+#         a = a + 1
+#         b += "_new"
+#         return a, b, c
+#
+#     return func2
+#
+#
+# func = func1()
+# print(func())
+
+
+# def func(city):
+#     s = 0
+#
+#     def inner():
+#         nonlocal s
+#         s += 1
+#         print(city, s)
+#
+#     return inner
+#
+#
+# res1 = func("Москва")
+# res1()
+# res1()
+# res1()
+# res2 = func('Сочи')
+# res2()
+# res1()
+
+
+# lambda(анонимные функции)
+
+# print((lambda x, y: x + y)(1, 2))
+#
+# func = lambda x, y: x + y
+# print(func(1, 2))
+
+
+# print((lambda x, y: x ** 2 + y ** 2)(2, 5))
+
+# y = (
+#     lambda x: x * 2,
+#     lambda x: x * 3,
+#     lambda x: x * 4
+# )
+# for i in y:
+#     print(i('abc__'))
+
+# def outer(n):
+#     def inner(x):
+#         return x + n
+#
+#     return inner
+#
+#
+# f = outer(5)
+# print(f(10))
+#
+#
+# def outer1(n):
+#     return lambda x: x + n
+#
+#
+# f1 = outer(5)
+# print(f1(10))
+#
+# outer2 = lambda n: lambda x: + n
+# f2 = outer2(5)
+# print(f1(10))
+#
+# print((lambda n: lambda x: x + n)(5)(10))
+
+
+# func = (lambda a, b, c: a + b + c)
+# print(func(2, 4, 5))
+
+
+# d = {'b': 3, 'c': 1, 'a': 2}
+# lst = list(d.items())
+# print(lst)
+# lst.sort(key=lambda i: i[1])
+# print(lst)
+# d1 = dict(lst)
+# print(d1)
+
+# players = [
+#     {'name': 'Антон', 'last name': 'Бирюков', 'rating': 9}
+# ]
+
+# a = [
+#     lambda x, y: x + y,
+#     lambda x, y: x - y,
+#     lambda x, y: x * y,
+#     lambda x, y: x / y
+# ]
+#
+# print(a[0](5, 2))
+
+
+# d = {
+#     1: lambda: print('Понедельник'),
+#     2: lambda: print('Вторник'),
+#     3: lambda: print('Среда'),
+#     4: lambda: print('Четверг'),
+#     5: lambda: print('Пятница'),
+#     6: lambda: print('Суббота'),
+#     7: lambda: print('Воскресенье')
+# }
+#
+# d[6]()
+
+
+# print((lambda a, b, c: a if (a < b and a < c) else b if (b < c and b < a) else c)(15, 13, 1))
+
+
+month = ["January", "February", "March"]
+total_sales = [52000.00, 51000.00, 48000.00]
+prod_cost = [46800.00, 45900.00, 43200.00]
+for t, p, m in zip(total_sales, prod_cost, month):
+    print("Общая прибыль в", m, "=", t - p)
