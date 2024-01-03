@@ -1376,8 +1376,37 @@
 # print((lambda a, b, c: a if (a < b and a < c) else b if (b < c and b < a) else c)(15, 13, 1))
 
 
-month = ["January", "February", "March"]
-total_sales = [52000.00, 51000.00, 48000.00]
-prod_cost = [46800.00, 45900.00, 43200.00]
-for t, p, m in zip(total_sales, prod_cost, month):
-    print("Общая прибыль в", m, "=", t - p)
+# 1
+
+# month = ["January", "February", "March"]
+# total_sales = [52000.00, 51000.00, 48000.00]
+# prod_cost = [46800.00, 45900.00, 43200.00]
+# for t, p, m in zip(total_sales, prod_cost, month):
+#     print("Общая прибыль в", m, "=", t - p)
+
+# 2
+
+n = int(input("Количество студентов: "))
+data = dict()
+for i in range(n):
+    name = input(f'{i + 1}-й студент: ')
+    numb = int(input("Балл: "))
+    a = {name: numb}
+    data.update(a)
+
+
+def func(args):
+    middle = sum(args) // len(args)
+    print(middle)
+    for k, v in data.items():
+        if v > middle:
+            print(k)
+    res = []
+    for element in args:
+        if element > middle:
+            res.append(element)
+    return res
+
+
+f = func(data.values())
+
