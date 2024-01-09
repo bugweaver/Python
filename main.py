@@ -1386,27 +1386,38 @@
 
 # 2
 
-n = int(input("Количество студентов: "))
-data = dict()
-for i in range(n):
-    name = input(f'{i + 1}-й студент: ')
-    numb = int(input("Балл: "))
-    a = {name: numb}
-    data.update(a)
+# n = int(input("Количество студентов: "))
+# data = dict()
+# for i in range(n):
+#     name = input(f'{i + 1}-й студент: ')
+#     numb = int(input("Балл: "))
+#     a = {name: numb}
+#     data.update(a)
+# 
+# 
+# def func(args):
+#     middle = sum(args) // len(args)
+#     print(middle)
+#     for k, v in data.items():
+#         if v > middle:
+#             print(k)
+#     res = []
+#     for element in args:
+#         if element > middle:
+#             res.append(element)
+#     return res
+# 
+# 
+# f = func(data.values())
 
 
-def func(args):
-    middle = sum(args) // len(args)
-    print(middle)
-    for k, v in data.items():
-        if v > middle:
-            print(k)
-    res = []
-    for element in args:
-        if element > middle:
-            res.append(element)
-    return res
+import math
 
-
-f = func(data.values())
-
+d = {
+    'circle': lambda x: math.pi * x * x,
+    'rectangle': lambda x, y: x * y,
+    'trapezoid': lambda x, y, z: (x + y) * z / 2
+}
+print("Площадь окружности:", d['circle'](2))
+print("Площадь прямоугольника:", d['rectangle'](10, 13))
+print("Площадь трапеции:", d['trapezoid'](7, 5, 3))
