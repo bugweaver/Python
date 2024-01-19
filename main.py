@@ -1638,17 +1638,127 @@
 #
 # print(return_num(5))
 
-def avg(fn):
-    def wrap(*a):
-        print(fn(*a) / len(a))
+# def avg(fn):
+#     def wrap(*a):
+#         print(fn(*a) / len(a))
+#
+#     return wrap
+#
+#
+# @avg
+# def summa(*args):
+#     print(sum(args))
+#     return sum(args)
+#
+#
+# summa(2, 3, 3, 4)
 
-    return wrap
+
+# 14/1/2024
+
+# print(int('18'))
+# print(int(18.5))
+# print(int('18.5'))
 
 
-@avg
-def summa(*args):
-    print(sum(args))
-    return sum(args)
+# print(int('100', 2))  # 4
+# print(int('100', 8))  # 64
+# print(int('100', 10))  # 100
+# print(int('100', 16))  # 256
+#
+# print(bin(18))  # 0b10010
+# print(oct(18))  # 0o22
+# print(hex(18))  # 0x12
 
 
-summa(2, 3, 3, 4)
+# q = 'Pyt'
+# w = 'hon'
+# e = q + w
+# print(e)
+# print(e * 3)
+
+# def changeCharToStr(s, c_old, c_new):
+#     s2 = ''
+#     i = 0
+#
+#     while i < len(s):
+#         if s[i] == c_old:
+#             s2 += c_new
+#         else:
+#             s2 += s[i]
+#         i += 1
+#     return s2
+#
+#
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования. "
+# str2 = changeCharToStr(str1, "N", "P")
+# print(str2)
+
+
+# print("Привет")
+# print(u"Привет")
+
+# print("C:\\Folder\\file.txt\\")
+# print(r"C:\Folder\file.txt\\"[:-1])
+# print(r"C:\Folder\file.txt" + '\\')
+
+
+# name = "Дмитрий"
+# age = 25
+# print(f'Меня зовут {name}, мне {age} лет')
+#
+# m = 2.532236256
+# print(f'Число: {m:.3f}')
+
+
+# s = """
+# Многострочный
+# текст
+# """
+
+# def square(n):
+#     """Принимает число n, возвращает квадрат числа n"""
+#     return n ** 2
+#
+#
+# print(square(5))
+# print(square.__doc__)
+# print(sum.__doc__)
+
+
+# from math import pi
+#
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь цилиндра
+#
+#     Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+#     :param r: положительное число, радиус основания цилиндра
+#     :param h: положительное число, высота цилиндра
+#     :return:  положительное число, площадь цилиндра
+#     """
+#     return 2 * pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+
+
+# s = "Test string for me"
+# arr = [ord(x) for x in s]
+# print("ASCII коды", arr)
+# arr = [int(sum(arr) / len(arr))] + arr
+# print(arr)
+# arr += [x for x in input("-> ")[:3]]
+# print(arr)
+
+a = 122
+b = 97
+if a > b:
+    for i in range(b, a + 1):
+        print(chr(i), end=' ')
+elif a < b:
+    for i in range(a, b + 1):
+        print(chr(i), end=' ')
+else:
+    print(chr(a))
