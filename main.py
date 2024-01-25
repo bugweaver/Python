@@ -1752,13 +1752,149 @@
 # arr += [x for x in input("-> ")[:3]]
 # print(arr)
 
-a = 122
-b = 97
-if a > b:
-    for i in range(b, a + 1):
-        print(chr(i), end=' ')
-elif a < b:
-    for i in range(a, b + 1):
-        print(chr(i), end=' ')
-else:
-    print(chr(a))
+# a = 122
+# b = 97
+# if a > b:
+#     for i in range(b, a + 1):
+#         print(chr(i), end=' ')
+# elif a < b:
+#     for i in range(a, b + 1):
+#         print(chr(i), end=' ')
+# else:
+#     print(chr(a))
+
+
+# from random import randint
+#
+# SHORTEST = 7
+# LONGEST = 10
+# MIN_ASCII = 33
+# MAX_ASCII = 126
+#
+#
+# def random_password():
+#     random_length = randint(SHORTEST, LONGEST)
+#     result = ""
+#     for i in range(random_length):
+#         result += chr(randint(MIN_ASCII, MAX_ASCII))
+#     return result
+#
+#
+# print("Ваш случайный пароль:", random_password())
+
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.capitalize())  # преобразует первый символ в верхний регистр, а все остальные - в нижний
+# print(s.lower())  # возвращает строку, в которой все буквы в нижний регистр
+# print(s.upper())  # возвращает строку, в которой все буквы в верхний регистр
+# print(s.swapcase())  # возвращает строку, в которой все символы строки находятся в противоположном исходному регистре
+# print(s.title())  # возвращает строку, в которой все первые буквы слов в верхний регистр
+# print(s)
+# print(s.count("h"))  # возвращает количество точных вхождение подстроки в строку
+# print(s.count('h', 1, -4))
+# print(s.find("Python"))  # Ищет в строке подстроку и возвращает ее индекс, если совпадения не найдено,
+# то возвращает -1
+# print(s.find("Python", 10, -20))
+# print(s.find("l"))
+# print(s.rfind("l"))
+
+# print(s.index("l"))  # Ищет в строке подстроку и возвращает ее индекс, если совпадения не найдено,
+# # возвращает исключение ValueError
+# print(s.rindex("l"))
+
+
+# s = input("Введите два слова через пробел: ")
+# word1 = s[:s.find(" ")]
+# word2 = s[s.find(" ") + 1:]
+# print(word2 + " " + word1)
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.startswith("hello"))  # возвращает True, если строка начинается с указанной подстроки
+# print(s.find("I am"))
+# print(s.startswith("I am", 14))
+#
+# print(s.endswith("on."))  # возвращает True, если строка заканчивается с указанной подстроки
+
+# print("abc123".isalpha())
+# print('123'.isdigit())
+# print('abc123'.isalnum())
+
+# print('abc'. islower())
+
+# print('py'.center(10, "-"))
+
+# удаляют пробельные символы слева или справа
+# print("     p y".lstrip())
+# print("p y     ".rstrip())
+
+# print("https://www.python.org".lstrip("/:pths"))
+
+
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# print(str1.replace("Nython", "Python"))
+# print(str1.replace("Nython", "Python", 2))
+
+# s1 = '-'
+# seq = ('a', 'b', 'c')
+# print(s1.join(seq))
+# print("..".join(['1', '2']))  # объединение итерируемой последовательности (состоит из строковых значений) в строку
+# print(":".join("Hello"))
+
+# s = "hello, WORLD! I am learning Python."
+# print(s.split())
+# print('www.python.org'.split('.', 1))
+
+# a = input("Введите ФИО: ").split()
+# print(a[0], a[1][0] + ".", a[2][0] + ".")
+
+# a = input("Введите коды символов через пробел: ").split()
+# print(a)
+# b = list(map(int, a))
+# print(b)
+# import re
+#
+# s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта. 198765 Hello[-World]"
+# reg = r'[a-zA-Z\]\[-]'
+# print(re.findall(reg, s))  # возвращает список, который содержит все совпадения с шаблоном регулярных выражений
+#
+# print(re.search(reg, s))  # возвращает месторасположение первого совпадения с шаблоном
+# print(re.search(reg, s).span())
+# print(re.search(reg, s).start())
+# print(re.search(reg, s).end())
+# print(re.search(reg, s).group())
+
+# print(re.match(reg, s))  # возвращает месторасположение совпадения с шаблоном, но только в начале строки
+
+
+# st = "Час в 24-часовом формате от 00 до 23. 2021-06-15Е21:59. Минуты, в диапазоне от 00 до 59. 2021-06-15T01:09."
+# reg = r'\d'
+# print(re.findall(reg, st))
+
+# d = "Цифры: 7, +17, -42, 0013, 0.3"
+# print(re.findall(r"[+-]?\d+", d))
+
+# st = "05-03-1987 # Дата рождения"
+# # print("Дата рождения:", re.sub(r'#.*', '', st).replace('-', '.'))
+# print("Дата рождения:", re.sub('-', '.',re.sub(r'#.*', '', st)))
+
+
+# import re
+#
+# st = "author=Пушкин A.C.; title = 'Евгений Онегин'; price =200; year= 1831"
+# req = r"\w+\s*=\s*[^;]+"
+# print(re.findall(req, st))
+
+
+# import re
+#
+# st = '+74994564578, 74994564578'
+# req = r'[+]?7[\d]*'
+# print(re.findall(req, st))
+
+# 1
+s = "I am learning Python. hello, WORLD!"
+first = s[:s.find('h') + 1]
+second = s[s.find('h') + 1:s.rfind('h')][::-1]
+third = s[s.rfind('h'):]
+new_s = first + second + third
+print(new_s)
