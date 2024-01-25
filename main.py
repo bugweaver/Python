@@ -1893,8 +1893,5 @@
 
 # 1
 s = "I am learning Python. hello, WORLD!"
-first = s[:s.find('h') + 1]
-second = s[s.find('h') + 1:s.rfind('h')][::-1]
-third = s[s.rfind('h'):]
-new_s = first + second + third
+new_s = s[:s.find('h') + 1] + s[s.find('h') + 1:s.rfind('h')][::-1] + s[s.rfind('h'):]
 print(new_s)
