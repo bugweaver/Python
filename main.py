@@ -1903,7 +1903,7 @@
 
 
 # 27/1/2024
-import re
+# import re
 
 # text = "<body>Пример жадного соответствия регулярных выражений</body>"
 # print(re.findall("<.*?>", text))
