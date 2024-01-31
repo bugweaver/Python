@@ -1897,6 +1897,183 @@
 # print(new_s)
 
 # 2
+# import re
+# s = "123456@i.ru, 123_456@ru.name.ru, login@i.ru, логин-1@i.ru, login.3@i.ru, login.3-67@i.ru, 1login@ru.name.ru"
+# print(re.findall(r'[\w.-]+@\w+[.\w+]+', s))
+
+
+# 27/1/2024
 import re
-s = "123456@i.ru, 123_456@ru.name.ru, login@i.ru, логин-1@i.ru, login.3@i.ru, login.3-67@i.ru, 1login@ru.name.ru"
-print(re.findall(r'[\w.-]+@\w+[.\w+]+', s))
+
+# text = "<body>Пример жадного соответствия регулярных выражений</body>"
+# print(re.findall("<.*?>", text))
+
+
+# s = "<p>Изображение <img  alt='картинка' src='bg.jpg'> - фон страницы</p>"
+# # reg = r'<img.*?>'
+# reg = r'<img\s+[^>]*src\s*=\s*[^>]+>'
+# print(re.findall(reg, s))
+
+
+# text = "Python (в русском языке встречаются названия пито́н[16]или па́йтон[17]) — высокоуровневый язык " \
+#        "программирования общего назначения с динамической строгой типизацией " \
+#        "и автоматическим управлением памятью[18][19]."
+# print(re.findall(r'\[.*?]', text))
+
+# s = "Петр, Ольга и Виталий отлично учатся!"
+# reg = 'Петр|Виктор|Ольга'
+# print(re.findall(reg, s))
+
+# s = "int = 4, float = 4.0f, double = 8.0"
+# # reg = r'\w+\s*=\s*\d[.\w]*'
+# # reg = r'(?:int|float)\s*=\s*\d[.\w]*'
+# reg = r'(int|float)\s*=\s*(\d[.\w]*)'
+# print(re.findall(reg, s))
+
+
+# (?:...) - это группирующая скобка является не сохраняющей
+
+
+# s = "127.168.255.255"
+# # reg = r'\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}'
+# reg = r'(?:\d{1,3}.){3}\d{1,3}.'
+# print(re.findall(reg, s))
+
+# s = '5 + 7*2 - 4'
+# reg = r'\s*([+*-])\s*'
+# print(re.split(reg, s))
+
+# a = '01-08-2021'
+# pattern = '(0[1-9]|[12][0-9]|[3][01])-(0[1-9]|1[0-2])-(19[0-9][0-9]|20[0-9][0-9])'
+# print(re.findall(pattern, a))
+
+# text = """
+# Самара
+# Москва
+# Тверь
+# Уфа
+# Казань
+# """
+
+
+# count = 0
+#
+#
+# def repl_find(m):
+#     global count
+#     count += 1
+#     return f"<option value='{count}'>{m.group(1)}</option>\n"
+#
+#
+# print(re.sub(r'\s*(\w+)\s*', repl_find, text))
+
+
+# s = "<p>Изображение <img src=\"bg.jpg\" - фон страницы</p>"
+# reg = r'<img\s+[^>]*src\s*=(['\"])(.+?)\1>'
+
+# s = "<p>Изображение <img src=\"bg.jpg\"> - фон страницы </p>"
+# # reg = r"<img\s+[^>]*src\s*=(['\"])(.+?)\1>"
+# reg = r"<img\s+[^>]*src\s*=(['\"])(.+?)(?P=q)>"
+# print(re.findall(reg, s))
+
+
+# s = "Самолет прилетает 10/23/2024. Будем рады вас видеть после 10/24/2024"
+# reg = r'(\d{2})/(\d{2})/(\d{4})'
+# print(re.sub(reg, r'\2.\1.\3', s))
+
+# s = "yandex.com and yandex.ru"
+# reg = r'(([a-z0-9-]{0,}\.)+[a-z]{2,4})'
+# print(re.sub(reg, r'http://\1', s, re.IGNORECASE))
+
+
+# 28.01.2024
+# Рекурсивная функция - это функция, вызывающая саму себя
+
+
+# def elevator(n):
+#     if n == 0:
+#         print("Вы в подвале")
+#         return
+#     print("=>", n)
+#     elevator(n - 1)
+#     print(n, end=' ')
+#
+#
+# n1 = int(input("На каком вы этаже: "))
+# elevator(n1)
+
+
+# def sum_list(lst):
+#     if len(lst) == 1:
+#         print(lst, "=> lst[0]", lst[0])
+#         return lst[0]
+#     else:
+#         print(lst, "=> lst[0]", lst[0])
+#         return lst[0] + sum_list(lst[1:])
+#
+#
+# print(sum_list([1, 3, 5, 7, 9]))
+
+
+# def to_str(n, base):
+#     convert = '0123456789ABCDEF'
+#     if n < base:
+#         return convert[n]
+#     else:
+#         return to_str(n // base, base) + convert[n % base]
+#
+#
+# print(to_str(254, 16))
+
+
+# names = ['Adam', ['Bob', ['Chet', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], 'Ann']
+# print(names)
+
+
+# print(isinstance(names[0], list))
+# def count_item(lst):
+#     count = 0
+#     for item in lst:
+#         if isinstance(item, list):
+#             count += count_item(item)
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(count_item(names))
+
+
+# def remove(text):
+#     if not text:
+#         return ""
+#     if text[0] == "\t" or text[0] == " ":
+#         return remove(text[1:])
+#     else:
+#         return text[0] + remove(text[1:])
+#
+# print(remove(" Hello\tWorld"))
+
+
+# Файлы
+
+# Текстовые
+# Бинарные
+
+# f = open("text.txt", "r")
+# count = 0
+# for i in f:
+#     count += 1
+# print(count)
+# f.close()
+
+# f = open("xyz.txt", 'w')
+# f.write("Hello\nWorld\n")
+# f.close()
+
+
+# 1
+import re
+
+s = "+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 7 (499) 456-45-78"
+print(re.findall(r"[+]?7\s?[(]?\d{3}[)]?\s?\d{3}-?\s?\d{2}-?\s?\d{2}", s))
