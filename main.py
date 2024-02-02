@@ -2073,7 +2073,19 @@
 
 
 # 1
-import re
+# import re
+#
+# s = "+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 7 (499) 456-45-78"
+# print(re.findall(r"[+]?7\s?[(]?\d{3}[)]?\s?\d{3}-?\s?\d{2}-?\s?\d{2}", s))
 
-s = "+7 499 456-45-78, +74994564578, 7 (499) 456 45 78, 7 (499) 456-45-78"
-print(re.findall(r"[+]?7\s?[(]?\d{3}[)]?\s?\d{3}-?\s?\d{2}-?\s?\d{2}", s))
+# 2
+def count_negative(numbers):
+    if len(numbers) == 0:
+        return 0
+    elif numbers[0] < 0:
+        return 1 + count_negative(numbers[1:])
+    else:
+        return count_negative(numbers[1:])
+
+
+print('n =', count_negative([-2, 3, 8, -11, -4, 6]))
