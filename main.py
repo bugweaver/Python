@@ -2079,13 +2079,181 @@
 # print(re.findall(r"[+]?7\s?[(]?\d{3}[)]?\s?\d{3}-?\s?\d{2}-?\s?\d{2}", s))
 
 # 2
-def count_negative(numbers):
-    if len(numbers) == 0:
-        return 0
-    elif numbers[0] < 0:
-        return 1 + count_negative(numbers[1:])
-    else:
-        return count_negative(numbers[1:])
+# def count_negative(numbers):
+#     if len(numbers) == 0:
+#         return 0
+#     elif numbers[0] < 0:
+#         return 1 + count_negative(numbers[1:])
+#     else:
+#         return count_negative(numbers[1:])
+#
+#
+# print('n =', count_negative([-2, 3, 8, -11, -4, 6]))
 
 
-print('n =', count_negative([-2, 3, 8, -11, -4, 6]))
+# 2/1/2024
+
+
+# def negative_numbers(a):
+#     if not a:
+#         return 0
+#     else:
+#         count = negative_numbers(a[1:])
+#         if a[0] < 0:
+#             count += 1
+#         return count
+#
+#
+# lst = [-2, 3, 8, -11, -4, 6]
+# print(negative_numbers(lst))
+
+
+# f = open('xyz.txt', 'w')
+# lst = [str(i) for i in range(1, 20)]
+# print(lst)
+# for index in lst:
+#     f.write(index + '\t')
+# f.close()
+
+
+# f = open("text2.txt", "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+#
+# f.close()
+
+# f = open('text2.txt')
+# rl = f.readlines()
+# f.close()
+# print(rl)
+# rl[1] = "Hello World\n"
+# print(rl)
+#
+#
+# f = open('text2.txt', 'w')
+# f.writelines(rl)
+# f.close()
+
+# filename = "text2.txt"
+# f = open(filename, "r")
+# rl = f.readlines()
+# f.close()
+#
+# print(rl)
+#
+# pos = 1
+# if pos < len(rl):
+#     rl.pop(pos)
+#
+# print(rl)
+#
+# f = open(filename, "w")
+# f.writelines(rl)
+# f.close()
+
+# f = open('text.txt', 'r')
+# print(f.read(3))
+# print(f.tell())  # возвращает текущую позицию уловного курсора в файле
+# print(f.seek(1))  # переместил условный курсор в заданную позицию
+# f.close()
+
+#
+# f = open('text.txt', 'r+')
+# print(f.write("I am learning Python"))
+# f.close()
+
+# with open('test.txt', 'w+') as f:
+#     print(f.write('01234\n56789'))
+#
+# with open('test.txt', 'r') as f:
+#     for line in f:
+#         print(line)
+
+
+# def longest_worlds(file):
+#     with open(file, encoding="utf-8") as text:
+#         w = text.read().split()
+#         max_length = len(max(w, key=len))
+#         res = [word for word in w if len(word) == max_length]
+#         return res
+#
+#
+# print(longest_worlds('words.txt'))
+
+
+# 4/2/2024
+
+# Модуль OS и OS.PATH
+
+
+# print(os.getcwd())  # путь к текущей директории
+# print(os.listdir())  # список директорий и файлов
+# print(os.listdir(".."))
+
+# os.mkdir('folder1')  # создание папки
+# os.makedirs("nested/nested2/nested3")  # создание папки с промежуточными директориями
+
+# os.rmdir("folder1")  # удаление папки
+
+# os.remove('xyz.txt')
+
+# os.rename("nested1", 'test')  # переименовали папку
+
+# for root, dirs, files in os.walk('test'):
+#     print("Root:", root)
+#     print('Subdirs', dirs)
+#     print("Files:", files)
+
+# def remove_empty_dirs(root_tree):
+#     print(f'Удаление пустых директорий в ветви {root_tree}')
+#     print('-' * 50)
+#
+#     for root, dirs, files in os.walk(root_tree):
+#         if not os.listdir(root):
+#             os.rmdir(root)
+#             print(f'Директория {root} удалена')
+#     print('-' * 50)
+#
+#
+# remove_empty_dirs('test')
+
+
+# import os
+#
+# # dirs = [r'Work\F1', r'Work\F2\F21']
+# # for d in dirs:
+# #     os.makedirs(d)
+#
+# # files = {
+# #     'Work': ['w.txt'],
+# #     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+# #     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# # }
+# #
+# # for d, f in files.items():
+# #     for file in f:
+# #         file_path = os.path.join(d, file)
+# #         open(file_path, 'w').close()
+#
+# print(os.path.exists(r'C:\Users\shevc\OneDrive\Documents\Python_code\Work\F2\F21'))
+
+
+# 1
+f = open("text2.txt", "w")
+f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+f.close()
+
+f = open("text2.txt", "r")
+rl = f.readlines()
+f.close()
+
+pos1 = 1
+pos2 = 2
+
+rl1 = rl[pos1]
+rl[pos1] = rl[pos2]
+rl[pos2] = rl1
+
+f = open("text2.txt", "w")
+f.writelines(rl)
+f.close()
+
