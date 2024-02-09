@@ -2238,22 +2238,37 @@
 
 
 # 1
-f = open("text2.txt", "w")
-f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
-f.close()
+# f = open("text2.txt", "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+# f.close()
+#
+# f = open("text2.txt", "r")
+# rl = f.readlines()
+# f.close()
+#
+# pos1 = 1
+# pos2 = 2
+#
+# rl1 = rl[pos1]
+# rl[pos1] = rl[pos2]
+# rl[pos2] = rl1
+#
+# f = open("text2.txt", "w")
+# f.writelines(rl)
+# f.close()
 
-f = open("text2.txt", "r")
-rl = f.readlines()
-f.close()
 
-pos1 = 1
-pos2 = 2
+# 2
 
-rl1 = rl[pos1]
-rl[pos1] = rl[pos2]
-rl[pos2] = rl1
+import os
 
-f = open("text2.txt", "w")
-f.writelines(rl)
-f.close()
+directory = 'Work'
+
+for file in os.listdir(directory):
+    path = os.path.join(directory, file)
+    if os.path.isfile(path):
+        print(f"{file} file {os.path.getsize(path)} bytes")
+    else:
+        print(file, '- dir')
+
 
