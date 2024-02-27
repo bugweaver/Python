@@ -2719,32 +2719,73 @@
 
 
 # 1
-class Rectangle:
-    def __init__(self, length, width):
-        self.length = length
-        self.width = width
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+#
+#     def print_info(self):
+#         print(f'Длина прямоугольника: {self.length}')
+#         print(f'Ширина прямоугольника: {self.width}')
+#
+#     def square(self):
+#         print(f'Площадь прямоугольника: {self.length * self.width}')
+#
+#     def perimeter(self):
+#         print(f'Периметр прямоугольника: {self.length * 2 + self.width * 2}')
+#
+#     def diagonal(self):
+#         print(f'Диагональ прямоугольника: {round((self.length ** 2 + self.width ** 2) ** 0.5, 2)}')
+#
+#     def draw_rectangle(self):
+#         for i in range(self.length):
+#             print('*' * self.width)
+#
+#
+# p1 = Rectangle(3, 9)
+# p1.print_info()
+# p1.square()
+# p1.perimeter()
+# p1.diagonal()
+# p1.draw_rectangle()
 
-    def print_info(self):
-        print(f'Длина прямоугольника: {self.length}')
-        print(f'Ширина прямоугольника: {self.width}')
 
-    def square(self):
-        print(f'Площадь прямоугольника: {self.length * self.width}')
+# 2
+class Person:
+    def __init__(self, name, age):
+        self.__name = name
+        self.__age = age
 
-    def perimeter(self):
-        print(f'Периметр прямоугольника: {self.length * 2 + self.width * 2}')
+    @property
+    def name(self):
+        return self.__name
 
-    def diagonal(self):
-        print(f'Диагональ прямоугольника: {round((self.length ** 2 + self.width ** 2) ** 0.5, 2)}')
+    @property
+    def age(self):
+        return self.__age
 
-    def draw_rectangle(self):
-        for i in range(self.length):
-            print('*' * self.width)
+    @name.setter
+    def name(self, new_name):
+        self.__name = new_name
+
+    @age.setter
+    def age(self, new_age):
+        self.__age = new_age
+
+    @name.deleter
+    def name(self):
+        del self.__name
+
+    @age.deleter
+    def age(self):
+        del self.__age
 
 
-p1 = Rectangle(3, 9)
-p1.print_info()
-p1.square()
-p1.perimeter()
-p1.diagonal()
-p1.draw_rectangle()
+p1 = Person('Irina', '26')
+print(p1.__dict__)
+p1.name = 'Igor'
+p1.age = '31'
+print(p1.name)
+print(p1.age)
+del p1.name
+print(p1.__dict__)
