@@ -3702,22 +3702,50 @@
 # d2.display()
 
 
-class Student:
-    def __init__(self, name):
-        self.name = name
+# class Student:
+#     def __init__(self, name):
+#         self.name = name
+#
+#     def print_info(self):
+#         print(f'{self.name} => {self.Notebook().model}, {self.Notebook().cpu}, {self.Notebook().ram}')
+#
+#     class Notebook:
+#         def __init__(self):
+#             self.model = 'HP'
+#             self.cpu = 'i7'
+#             self.ram = '16'
+#
+#
+# student1 = Student('Roman')
+# notebook1 = student1.Notebook()
+# student1.print_info()
+# student1.name = 'Vladimir'
+# student1.print_info()
 
-    def print_info(self):
-        print(f'{self.name} => {self.Notebook().model}, {self.Notebook().cpu}, {self.Notebook().ram}')
-
-    class Notebook:
-        def __init__(self):
-            self.model = 'HP'
-            self.cpu = 'i7'
-            self.ram = '16'
+from math import pi
 
 
-student1 = Student('Roman')
-notebook1 = student1.Notebook()
-student1.print_info()
-student1.name = 'Vladimir'
-student1.print_info()
+class Table:
+    def __init__(self, width=None, length=None, radius=None):
+        if radius is None:
+            self._width = width
+            self._length = length
+        else:
+            self._radius = radius
+
+
+class RectangularTables(Table):
+    def square(self):
+        print('Площадь прямоугольного стола:', self._width * self._length)
+
+
+class CircleTables(Table):
+    def square(self):
+        print('Площадь круглого стола:', round(pi * self._radius ** 2, 2))
+
+
+rt = RectangularTables(20, 10)
+rt.square()
+
+ct = CircleTables(radius=20)
+ct.square()
