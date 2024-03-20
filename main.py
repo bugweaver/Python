@@ -3904,29 +3904,29 @@ print(len(p))
 # print(s1.marks)
 
 #
-class Cat:
-    def __init__(self, name, age, pol):
-        self.name = name
-        self.age = age
-        self.pol = pol
-
-    def __str__(self):
-        if self.pol == "M":
-
-            return f"{self.name} is a good boy!!!"
-        elif self.pol == "F":
-            return f"{self.name} is a good girl!!!"
-        else:
-            return f"{self.name} is a good kitty!!!"
-
-    def __repr__(self):
-
-    def __add__(self, other):
-        return [Cat("No name", 0, choice(['M', 'F'])) for _ in range(2)]
-
-
-cat1 = Cat("Tom", 4, "М")
-cat2 = Cat("Elsa", 5, "F")
-print(cat1)
-print(cat2)
-print(cat1 + cat2)
+# class Cat:
+#     def __init__(self, name, age, pol):
+#         self.name = name
+#         self.age = age
+#         self.pol = pol
+#
+#     def __str__(self):
+#         if self.pol == "M":
+#
+#             return f"{self.name} is a good boy!!!"
+#         elif self.pol == "F":
+#             return f"{self.name} is a good girl!!!"
+#         else:
+#             return f"{self.name} is a good kitty!!!"
+#
+#     def __repr__(self):
+#
+#     def __add__(self, other):
+#         return [Cat("No name", 0, choice(['M', 'F'])) for _ in range(2)]
+#
+#
+# cat1 = Cat("Tom", 4, "М")
+# cat2 = Cat("Elsa", 5, "F")
+# print(cat1)
+# print(cat2)
+# print(cat1 + cat2)
