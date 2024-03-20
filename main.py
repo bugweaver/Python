@@ -3722,30 +3722,211 @@
 # student1.name = 'Vladimir'
 # student1.print_info()
 
-from math import pi
+# from math import pi
+#
+#
+# class Table:
+#     def __init__(self, width=None, length=None, radius=None):
+#         if radius is None:
+#             self._width = width
+#             self._length = length
+#         else:
+#             self._radius = radius
+#
+#
+# class RectangularTables(Table):
+#     def square(self):
+#         print('Площадь прямоугольного стола:', self._width * self._length)
+#
+#
+# class CircleTables(Table):
+#     def square(self):
+#         print('Площадь круглого стола:', round(pi * self._radius ** 2, 2))
+#
+#
+# rt = RectangularTables(20, 10)
+# rt.square()
+#
+# ct = CircleTables(radius=20)
+# ct.square()
 
 
-class Table:
-    def __init__(self, width=None, length=None, radius=None):
-        if radius is None:
-            self._width = width
-            self._length = length
+class Point:
+    def __init__(self, *args):
+        self.__coord = args
+
+    def __len__(self):
+        return len(self.__coord)
+
+
+p = Point(1, 2, 3)
+print(len(p))
+
+# import math
+
+
+# class Point:
+#     __slots__ = ('x', 'y', '__length')
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#         self.length = math.sqrt(x * x + y * y)
+#
+#     @property
+#     def length(self):
+#         return self.__length
+#
+#     @length.setter
+#     def length(self, value):
+#         self.__length = value
+#
+#
+# p = Point(1, 2)
+# print(p.length)
+# p.length = 20
+# print(p.length)
+
+
+# class Point:
+#     __slots__ = ('x', 'y')
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# class Point2D:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#
+#
+# pt1 = Point(1, 2)
+# pt2 = Point2D(1, 2)
+# print('pt1 = ', pt1.__sizeof__())
+# print('pt2 = ', pt2.__sizeof__() + pt2.__dict__.__sizeof__())
+
+# Множественные наследования
+
+# class Creature:
+#     def __init__(self, name):
+#         self.name = name
+#
+#
+# class Animal(Creature):
+#     def sleep(self):
+#         print(self.name + " is sleeping")
+#
+#
+# class Pet(Creature):
+#     def play(self):
+#         print(self.name + " is a player")
+#
+#
+# class Dog(Animal, Pet):
+#     def __init__(self):
+#     def bark(self):
+#         print(self.name + " is barking")
+#
+#
+# dog = Dog("Buddy")
+# dog.bark()
+# dog.sleep()
+# dog.sleep()
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __str__(self):
+#         return f'({self.__x}, {self.__y})'
+#
+#
+# class Styles:
+#     def __init__(self, color="red", width=1):
+#         print("Инициализатор Styles")
+#         self._color = color
+#         self._width = width
+#
+#
+# class Pos:
+#     def __init__(self, sp: Point, ep: Point, color="red", width=1):
+#         print("Инициализатор Pos")
+#         self._sp = sp
+#         self._ep = ep
+#         Styles.__init__(self, color, width)
+#
+#
+# class Line(Pos, Styles):
+#     def draw(self):
+#         print(f'Рисование линии: {self._sp}, {self._color}, {self._width}')
+#
+#
+# l1 = Line(Point(10, 10), Point(100, 100), "green", 5)
+# l1.draw()
+
+
+# class Student:
+#     def __init__(self, name, *marks):
+#         self.name = name
+#         self.marks = list(marks)
+#
+#     def __getitem__(self, item):
+#         if 0 <= item < len(self.marks):
+#             return self.marks[item]
+#         else:
+#             raise IndexError("Неверный индекс")
+#
+#     def __setitem__(self, key, value):
+#         if not isinstance(key, int) or key < 0:
+#             raise TypeError("Индекс должен быть целым положительным числом")
+#
+#         if key >= len(self.marks):
+#             off = key + 1 - len(self.marks)
+#             self.marks.extend([None] * off)
+#         self.marks[key] = value
+#
+#     def __del__(self, key):
+#         if not isinstance(key, int):
+#             raise TypeError("Индекс должен быть целым числом")
+#         del self.marks[key]
+
+#
+# s1 = Student("Сергей", 5, 5, 3, 4, 5)
+# print(s1.name)
+# print(s1.marks[2])
+# print(s1[2])
+# # print(s1[20])
+# s1[10] = 4
+# print(s1[2])
+# print(s1.marks)
+
+#
+class Cat:
+    def __init__(self, name, age, pol):
+        self.name = name
+        self.age = age
+        self.pol = pol
+
+    def __str__(self):
+        if self.pol == "M":
+
+            return f"{self.name} is a good boy!!!"
+        elif self.pol == "F":
+            return f"{self.name} is a good girl!!!"
         else:
-            self._radius = radius
+            return f"{self.name} is a good kitty!!!"
+
+    def __repr__(self):
+
+    def __add__(self, other):
+        return [Cat("No name", 0, choice(['M', 'F'])) for _ in range(2)]
 
 
-class RectangularTables(Table):
-    def square(self):
-        print('Площадь прямоугольного стола:', self._width * self._length)
-
-
-class CircleTables(Table):
-    def square(self):
-        print('Площадь круглого стола:', round(pi * self._radius ** 2, 2))
-
-
-rt = RectangularTables(20, 10)
-rt.square()
-
-ct = CircleTables(radius=20)
-ct.square()
+cat1 = Cat("Tom", 4, "М")
+cat2 = Cat("Elsa", 5, "F")
+print(cat1)
+print(cat2)
+print(cat1 + cat2)
