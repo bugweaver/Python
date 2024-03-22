@@ -3963,69 +3963,135 @@
 # q.draw()
 # q.move()
 
-class Clock:
-    DAY = 86400
+# class Clock:
+#     DAY = 86400
+#
+#     def __init__(self, sec):
+#         if not isinstance(sec, int):
+#             raise ValueError("Секунды должны быть целым числом")
+#         self.sec = sec % self.DAY
+#
+#     def get_format_time(self):
+#         s = self.sec % 60
+#
+#         m = (self.sec // 60) % 60
+#         h = (self.sec // 3600) % 24
+#         return f"{h}:{m}:{s}"
+#
+#     @staticmethod
+#     def get_form(x):
+#         return str(x) if x > 9 else "0" + str(x)
+#
+#     def __add__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec + other.sec)
+#
+#     def __sub__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec - other.sec)
+#
+#     def __mul__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec * other.sec)
+#
+#     def __floordiv__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec // other.sec)
+#
+#     def __mod__(self, other):
+#         if not isinstance(other, Clock):
+#             raise ArithmeticError("Правый операнд должен быть типом Clock")
+#         return Clock(self.sec % other.sec)
+#
+#
+# c1 = Clock(100)
+# c2 = Clock(200)
+# print(c1.get_format_time())
+# print(c2.get_format_time())
+#
+# c3 = c1 - c2
+# print(c3.get_format_time())
+# c3 = c1 * c2
+# print(c3.get_format_time())
+# c3 = c1 // c2
+# print(c3.get_format_time())
+# c3 = c1 % c2
+# print(c3.get_format_time())
+# c1 -= c2
+# print(c1.get_format_time())
+# c1 *= c2
+# print(c1.get_format_time())
+# c1 //= c2
+# print(c1.get_format_time())
+# c1 %= c2
+# print(c1.get_format_time())
 
-    def __init__(self, sec):
-        if not isinstance(sec, int):
-            raise ValueError("Секунды должны быть целым числом")
-        self.sec = sec % self.DAY
 
-    def get_format_time(self):
-        s = self.sec % 60
+class Point3D:
+    def __init__(self, x, y, z):
+        if not isinstance(x, int) or not isinstance(y, int) or not isinstance(z, int):
+            raise TypeError("Координаты задаются числавами значениями.")
 
-        m = (self.sec // 60) % 60
-        h = (self.sec // 3600) % 24
-        return f"{h}:{m}:{s}"
+        self.x = x
+        self.y = y
+        self.z = z
+        self.values = {
+            'x': x,
+            'y': y,
+            'z': z,
+        }
 
-    @staticmethod
-    def get_form(x):
-        return str(x) if x > 9 else "0" + str(x)
+    def __str__(self):
+        return f'{self.x}, {self.y}, {self.z}'
 
     def __add__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("Правый операнд должен быть типом Clock")
-        return Clock(self.sec + other.sec)
+
+        return f'Сложение координат: ({self.x + other.x}, {self.y + other.y}, {self.z + other.z})'
 
     def __sub__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("Правый операнд должен быть типом Clock")
-        return Clock(self.sec - other.sec)
+
+        return f'Вычитание координат: ({self.x - other.x}, {self.y - other.y}, {self.z - other.z})'
 
     def __mul__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("Правый операнд должен быть типом Clock")
-        return Clock(self.sec * other.sec)
 
-    def __floordiv__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("Правый операнд должен быть типом Clock")
-        return Clock(self.sec // other.sec)
+        return f'Умножение координат: ({self.x * other.x}, {self.y * other.y}, {self.z * other.z})'
 
-    def __mod__(self, other):
-        if not isinstance(other, Clock):
-            raise ArithmeticError("Правый операнд должен быть типом Clock")
-        return Clock(self.sec % other.sec)
+    def __truediv__(self, other):
+
+        return f'Деление координат: ({self.x / other.x}, {self.y / other.y}, {self.z / other.z})'
+
+    def __eq__(self, other):
+
+        return f'Равенство координат: {self.x, self.y, self.z == other.x, other.y, other.z}'
+
+    def __getitem__(self, item):
+        return self.values[item]
+
+    def __setitem__(self, key, value):
+        if not isinstance(key, str):
+            raise TypeError('Ключ задаётся строковым значением')
+        if not isinstance(value, int):
+            raise TypeError('Координата задаётся числовым значением.')
+        self.values[key] = value
 
 
-c1 = Clock(100)
-c2 = Clock(200)
-print(c1.get_format_time())
-print(c2.get_format_time())
+p1 = Point3D(12, 15, 18)
+p2 = Point3D(6, 3, 9)
 
-c3 = c1 - c2
-print(c3.get_format_time())
-c3 = c1 * c2
-print(c3.get_format_time())
-c3 = c1 // c2
-print(c3.get_format_time())
-c3 = c1 % c2
-print(c3.get_format_time())
-c1 -= c2
-print(c1.get_format_time())
-c1 *= c2
-print(c1.get_format_time())
-c1 //= c2
-print(c1.get_format_time())
-c1 %= c2
-print(c1.get_format_time())
+for index, value in enumerate([p1, p2], 1):
+    print(f'Координаты {index}-ой точки {value}')
+
+print(p1 + p2)
+print(p1 - p2)
+print(p1 * p2)
+print(p1 / p2)
+print(f'x = {p1["x"]} x1 = {p2["x"]}\n'
+      f'y = {p1["y"]} y1 = {p2["y"]}\n'
+      f'z = {p1["z"]} z1 = {p2["z"]}')
+
+p1['x'] = 30
+print(f'Запись значения в координату x: {p1["x"]}')
