@@ -3751,16 +3751,16 @@
 # ct.square()
 
 
-class Point:
-    def __init__(self, *args):
-        self.__coord = args
-
-    def __len__(self):
-        return len(self.__coord)
-
-
-p = Point(1, 2, 3)
-print(len(p))
+# class Point:
+#     def __init__(self, *args):
+#         self.__coord = args
+#
+#     def __len__(self):
+#         return len(self.__coord)
+#
+#
+# p = Point(1, 2, 3)
+# print(len(p))
 
 # import math
 
@@ -3931,4 +3931,101 @@ print(len(p))
 # print(cat2)
 # print(cat1 + cat2)
 
-print("Артём")
+# class Point:
+#     def __init__(self, x=0, y=0):
+#         self.__x = x
+#         self.__y = y
+#
+#
+# print(issubclass(Point, object))
+
+
+# from abc import ABC, abstractmethod
+#
+#
+# class Chess(ABC):
+#     @staticmethod
+#     def draw():
+#         print("Нарисовал шахматную фигуру")
+#
+#     @abstractmethod
+#     def move(self):
+#         print("Метод move() в базовом классе")
+#
+#
+# class Queen(Chess):
+#     def move(self):
+#         super().move()
+#         print("Ферзь перемещен на e2e4")
+#
+#
+# q = Queen()
+# q.draw()
+# q.move()
+
+class Clock:
+    DAY = 86400
+
+    def __init__(self, sec):
+        if not isinstance(sec, int):
+            raise ValueError("Секунды должны быть целым числом")
+        self.sec = sec % self.DAY
+
+    def get_format_time(self):
+        s = self.sec % 60
+
+        m = (self.sec // 60) % 60
+        h = (self.sec // 3600) % 24
+        return f"{h}:{m}:{s}"
+
+    @staticmethod
+    def get_form(x):
+        return str(x) if x > 9 else "0" + str(x)
+
+    def __add__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec + other.sec)
+
+    def __sub__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec - other.sec)
+
+    def __mul__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec * other.sec)
+
+    def __floordiv__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec // other.sec)
+
+    def __mod__(self, other):
+        if not isinstance(other, Clock):
+            raise ArithmeticError("Правый операнд должен быть типом Clock")
+        return Clock(self.sec % other.sec)
+
+
+c1 = Clock(100)
+c2 = Clock(200)
+print(c1.get_format_time())
+print(c2.get_format_time())
+
+c3 = c1 - c2
+print(c3.get_format_time())
+c3 = c1 * c2
+print(c3.get_format_time())
+c3 = c1 // c2
+print(c3.get_format_time())
+c3 = c1 % c2
+print(c3.get_format_time())
+c1 -= c2
+print(c1.get_format_time())
+c1 *= c2
+print(c1.get_format_time())
+c1 //= c2
+print(c1.get_format_time())
+c1 %= c2
+print(c1.get_format_time())
