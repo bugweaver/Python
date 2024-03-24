@@ -653,8 +653,8 @@
 # for x, y in [[1,2], [3,4], [5,6], [7,8]]:
 #     print(x, "+", y, "=", x + y)
 
-# import math as m
-# from math import *
+# import geometry as m
+# from geometry import *
 # num1 = sqrt(4)
 # print(num1)
 
@@ -1411,10 +1411,10 @@
 # f = func(data.values())
 
 
-# import math
+# import geometry
 #
 # d = {
-#     'circle': lambda x: math.pi * x * x,
+#     'circle': lambda x: geometry.pi * x * x,
 #     'rectangle': lambda x, y: x * y,
 #     'trapezoid': lambda x, y, z: (x + y) * z / 2
 # }
@@ -1726,7 +1726,7 @@
 # print(sum.__doc__)
 
 
-# from math import pi
+# from geometry import pi
 #
 #
 # def cylinder(r, h):
@@ -2679,7 +2679,7 @@
 # print(f'Среднее арифметическое: {Tools.middle([3, 5, 7, 9])}')
 # print(f'Факториал числа {5}: {Tools.factorial(5)}')
 
-# from math import sqrt
+# from geometry import sqrt
 #
 #
 # class Square:
@@ -3722,7 +3722,7 @@
 # student1.name = 'Vladimir'
 # student1.print_info()
 
-# from math import pi
+# from geometry import pi
 #
 #
 # class Table:
@@ -3762,7 +3762,7 @@
 # p = Point(1, 2, 3)
 # print(len(p))
 
-# import math
+# import geometry
 
 
 # class Point:
@@ -3771,7 +3771,7 @@
 #     def __init__(self, x, y):
 #         self.x = x
 #         self.y = y
-#         self.length = math.sqrt(x * x + y * y)
+#         self.length = geometry.sqrt(x * x + y * y)
 #
 #     @property
 #     def length(self):
