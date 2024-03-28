@@ -30,3 +30,4 @@ class Order:
 
 o = Order('apple', 5, 10)
 o.total_cost()
+print('test')
