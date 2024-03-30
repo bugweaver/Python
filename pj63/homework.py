@@ -5,6 +5,7 @@ from random import choice
 def gen_person():
     name = ''
     tel = ''
+    key = ''
 
     letter = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'e']
     num = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
@@ -15,8 +16,11 @@ def gen_person():
     while len(tel) != 10:
         tel += choice(num)
 
+    while len(key) != 10:
+        key += choice(num)
+
     person = {
-        tel: {
+        key: {
             'name': name,
             'tel': tel
         }
