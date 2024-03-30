@@ -24,12 +24,12 @@ def gen_person():
 
 def write_json(person_dict):
     try:
-        data = json.load(open('person.json'))
-    except FileExistsError:
+        data = json.load(open('persons.json'))
+    except FileNotFoundError:
         data = []
 
     data.append(person_dict)
-    with open('person.json', 'w') as f:
+    with open('persons.json', 'w') as f:
         json.dump(data, f, indent=2)
 
 
