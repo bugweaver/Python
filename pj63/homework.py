@@ -16,8 +16,11 @@ def gen_person():
         tel += choice(num)
 
     person = {
-        'name': name,
-        'tel': tel
+        tel: {
+            'name': name,
+            'tel': tel
+        }
+
     }
     return person
 
@@ -26,9 +29,9 @@ def write_json(person_dict):
     try:
         data = json.load(open('persons.json'))
     except FileNotFoundError:
-        data = []
+        data = {}
 
-    data.append(person_dict)
+    data.update(person_dict)
     with open('persons.json', 'w') as f:
         json.dump(data, f, indent=2)
 
