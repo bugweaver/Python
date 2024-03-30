@@ -63,9 +63,9 @@
 
 # print(MyList1.__dict__)
 
-# import Python.project.geometry.rect
-# import Python.project.geometry.sq
-# import Python.project.geometry.trian
+# import Python.pj62.geometry.rect
+# import Python.pj62.geometry.sq
+# import Python.pj62.geometry.trian
 # from geometry import rect, sq, trian
 #
 # # from geometry import *
