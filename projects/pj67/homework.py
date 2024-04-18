@@ -2,8 +2,8 @@ from parsers1 import Parser
 
 
 def main():
-    for i in range(11):
-        pars = Parser(f"https://www.ixbt.com/live/index/news/page{i}", "news1.txt")
+    for i in range(4):
+        pars = Parser(f"https://habr.com/ru/articles/page{i}/", "habr_news.txt")
         pars.run()
 
 

@@ -15,23 +15,24 @@ class Parser:
         self.html = BeautifulSoup(req, "lxml")
 
     def parsing(self):
-        news = self.html.find_all("article")
+        news = self.html.find_all("article", class_="tm-articles-list__item")
         for item in news:
-            title = item.find("h3").text
-            href = item.find("h3").find("a").get("href")
-            author = item.find('a', class_="topic-info-author-link").text.strip()
+            title = item.find("a", class_="tm-title__link").find("span").text
+            href = f"https://habr.com{item.find("a", class_="tm-title__link")['href']}"
+            author = item.find("a", class_="tm-user-info__username").text
             self.res.append({
                 "title": title,
                 "href": href,
-                "author": author
+                "author": author,
             })
 
     def save(self):
         with open(self.path, "w", encoding="UTF-8") as f:
             i = 1
             for item in self.res:
-                f.write(f"Новость № {i}\n\nНазвание: {item['title']}\nСсылка: {item["href"]}\nАвтор: {item["author"]}"
-                        f"\n\n{'*' * 30}\n")
+                f.write(
+                    f"Новость № {i}\n\nНазвание: {item['title']}\nАвтор: {item["author"]}\nСсылка: {item["href"]}"
+                    f"\n\n{'*' * 30}\n")
 
                 i += 1
 
