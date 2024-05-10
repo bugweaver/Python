@@ -1,0 +1,46 @@
+1. С помощью объединения вывести данные о каждом заказчике, для которого определен продавец.
+
+SELECT *
+FROM Klient k JOIN Prodaves p ON k.ID_PR = p.ID_PR
+
+2. Вывести имя заказчика и данные о средней цене доставки для него. Если цена доставки больше средней по таблице написать - lot, меньше – few
+
+3. Соедините вместе все таблицы с помощью внешнего объединения.
+
+SELECT *
+FROM ZAKAZ z JOIN KLIENT k JOIN PRODAVES p ON z.ID_KL = k.ID_KL AND k.ID_Pr = p.ID_Pr
+
+4. С помощью объединения вывести данные о скидках клиента для каждого продавца
+
+SELECT k.Name_KL, k.Discoun, p.Name_Pr
+FROM KLIENT k RIGHT JOIN PRODAVES p ON k.ID_Pr = p.ID_Pr
+
+5. Напишите запрос, который выведет все города, в которых живут продавцы и заказчики.
+
+SELECT DISTINCT City_Pr
+FROM PRODAVES
+
+UNION
+
+SELECT DISTINCT City_KL
+FROM KLIENT
+
+6. С помощью объединения вывести все данные о заказчиках и  заказах, даже если заказчик не сделал ни одного заказа за указанный период.
+
+SELECT *
+FROM KLIENT k RIGHT JOIN ZAKAZ z ON k.ID_KL = z.ID_KL
+
+7. Составьте запроса для вывода имен и кодов всех продавцов, в чьих городах есть покупатели, которых они не обслуживают. С помощью оператора в подзапросе.
+
+
+8. Напишите запрос, который выведет все города и имена продавцов и заказчиков, которые живут в Лондоне.
+
+SELECT DISTINCT City_Pr, Name_Pr
+FROM PRODAVES
+WHERE City_Pr = "London"
+
+UNION
+
+SELECT DISTINCT City_KL, Name_KL
+FROM KLIENT
+WHERE City_KL = "London"
