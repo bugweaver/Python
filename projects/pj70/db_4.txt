@@ -74,7 +74,7 @@ VALUES("NTC-117BK", "Micro Camera Case",
 "нейлон", "ч", "13,3x8,3x5,7", 
 2016, "Беларусь", 1046)
 
-8. Вставьте строку POC-463BKCompact Camera Case, полиэстер, ч, 11x7x4,5, остальные данные не определены(Будет ошибка, так как стоит ограничение ID NOT NULL)
+8. Вставьте строку POC-463BK, Compact Camera Case, полиэстер, ч, 11x7x4,5, остальные данные не определены(Будет ошибка, так как стоит ограничение ID NOT NULL)
 
 INSERT INTO Ware(Produce, REM, Material, Color, 
 Size)
@@ -93,10 +93,10 @@ SELECT * FROM Ware
 WHERE Price BETWEEN 200 AND 345
 
 11.Определите все сумки из кожи с размером не менее 40х30х5
-
 SELECT * FROM Ware
-WHERE Size 
+WHERE Size
 GLOB "[4-9][0-9]x[3-9][0-9]x[5-9]*"
+
 
 
 12. Написать запрос, который выводит все сумки и коды их поставщиков, если товара меньше чем на 1200 руб.
