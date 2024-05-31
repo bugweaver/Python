@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {{ super() }}
+
+  <ul>
+    {% for course in courses %}
+    <li>
+      <div class="annonce">
+        <div class="card">
+          <div class="title">{{ course.title }}</div>
+          <p class="price">{{ course.price }} руб / мес</p>
+          <div class="text">{{ course.text[:240] | striptags }}</div>
+          <p class="link"><a href="#">Купить</a></p>
+        </div>
+      </div>
+    </li>
+    {% endfor%}
+  </ul>
+{% endblock content %}

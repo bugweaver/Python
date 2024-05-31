@@ -1,0 +1,101 @@
+body {
+    background: rgb(253, 255, 228);
+    margin: 0;
+    padding:0;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.menu{
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    background: rgb(1, 88, 202);
+    padding: 20px;
+    margin-top: 0;
+
+}
+.menu a{
+    color: aliceblue;
+    text-decoration: none
+}
+.content{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    color: rgb(1, 88, 202);
+    text-align: center;
+    font-size: large;
+}
+
+.flash{
+    padding: 10px;
+}
+
+.flash.success{
+    border: 1px solid #21db56;
+    background: #AEFFC5;
+}
+
+.flash.error{
+    border: 1px solid #FF4343;
+    background: #FF9c9c;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+p>a {
+    text-decoration: none;
+    color: white;
+}
+
+div.title{
+    background: rgb(1, 88, 202);
+    text-align: center;
+    color: aliceblue;
+    padding: 20px 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.annonce{
+    padding-top: 20px;
+}
+
+.price {
+    color: black;
+    padding: 30px 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card {
+    background: aliceblue;
+    margin-bottom: 40px;
+    margin-top: -1px;
+    height: 460px;
+    width: 285px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.link {
+    background: rgb(1, 88, 202);
+    color: aliceblue;;
+    width: 245px;
+    justify-content: center;
+    padding: 10px 10px;
+    border-radius: 5px;
+    margin: 30px 10px 40px;
+}
+
+.text {
+    color:rgb(27, 31, 36);
+    width: 275px;
+    height: 170px;
+    padding: 5px;
+}
