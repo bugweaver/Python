@@ -3,14 +3,14 @@ import os
 from flask import Flask, render_template, url_for, request, flash, session, redirect, g
 from FDataBase import FDataBase
 
-DATABASE = '/tmp/flsk.db'
+DATABASE = '/tmp/course.db'
 DEBUG = True
 SECRET_KEY = '428440dba36b4f3e6b6ad05b7bb90c7f53368506'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-app.config.update(DATABASE=os.path.join(app.root_path, 'flsk.db'))
+app.config.update(DATABASE=os.path.join(app.root_path, 'course.db'))
 
 
 def connect_db():

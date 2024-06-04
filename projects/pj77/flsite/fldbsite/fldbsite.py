@@ -3,14 +3,14 @@ import os
 from flask import Flask, render_template, url_for, request, flash, session, redirect, g
 from FDataBase import FDataBase
 
-DATABASE = '/tmp/flsk.db'
+DATABASE = '/tmp/course.db'
 DEBUG = True
 SECRET_KEY = '428440dba36b4f3e6b6ad05b7bb90c7f53368506'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-app.config.update(DATABASE=os.path.join(app.root_path, 'flsk.db'))
+app.config.update(DATABASE=os.path.join(app.root_path, 'course.db'))
 
 
 def connect_db():
@@ -55,7 +55,7 @@ def add_post():
         else:
             flash("Ошибка добавления статьи", category='error')
 
-    return render_template('add_post.html', menu=dbase.get_menu(), title="Добавление статьи")
+    return render_template('add_course.html', menu=dbase.get_menu(), title="Добавление статьи")
 
 
 @app.route("/post/<alias>")
@@ -64,7 +64,7 @@ def show_post(alias):
     dbase = FDataBase(db)
     title, post = dbase.get_post(alias)
 
-    return render_template("post.html", menu=dbase.get_menu(), title=title, post=post)
+    return render_template("course.html", menu=dbase.get_menu(), title=title, post=post)
 
 
 @app.teardown_appcontext
