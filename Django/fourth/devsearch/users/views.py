@@ -5,8 +5,7 @@ from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, ProfileModel
 
 
 def login_user(request):
@@ -29,14 +28,7 @@ def login_user(request):
             return redirect('profiles')
         else:
             messages.error(request, "Username or password is incorrect")
-
     return render(request, 'users/login_register.html')
-
-
-def logout_user(request):
-    logout(request)
-    messages.info(request, 'User was logged out!')
-    return redirect('login')
 
 
 def register_user(request):
@@ -54,9 +46,16 @@ def register_user(request):
             login(request, user)
             return redirect('profiles')
         else:
-            messages.error(request, 'An error has occurred registration')
+            messages.error(request, 'An error has occurred during registration')
+
     context = {'page': page, 'form': form}
     return render(request, 'users/login_register.html', context)
+
+
+def logout_user(request):
+    logout(request)
+    messages.info(request, "User was logged out!")
+    return redirect('login')
 
 
 def profiles(request):
@@ -70,9 +69,38 @@ def user_profile(request, pk):
 
     top_skills = prof.skill_set.exclude(description__exact="")  # __exact - полное совпадение
     other_skills = prof.skill_set.filter(description="")
+
     context = {
         'profile': prof,
         'top_skills': top_skills,
         'other_skills': other_skills
     }
     return render(request, 'users/profile.html', context)
+
+
+@login_required(login_url='login')
+def user_account(request):
+    prof = request.user.profile
+    skills = prof.skill_set.all()
+    projects = prof.project_set.all()
+    context = {
+        'profile': prof,
+        'skills': skills,
+        'projects': projects
+    }
+    return render(request, 'users/account.html', context)
+
+
+@login_required(login_url='login')
+def edit_account(request):
+    profile = request.user.profile
+    form = ProfileModel(instance=profile)
+
+    if request.method == 'POST':
+        form = ProfileModel(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('account')
+
+    context = {'form': form}
+    return render(request, 'users/profile_form.html', context)

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{%load static%}
+{% load static %}
 <html lang="en">
 
 <head>
@@ -8,23 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'images/favicon.ico'%}" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon"/>
     <!-- Icon - font-awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Mumble UI -->
-    <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css'%}"/>
+    <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}"/>
     <!-- Dev Search UI -->
-    <link rel="stylesheet" href="{% static 'styles/app.css'%}"/>
+    <link rel="stylesheet" href="{% static 'styles/app.css' %}"/>
 
     <title>DevSearch - Connect with Developers!</title>
 </head>
 
 <body>
 
-{%include 'projects/navbar.html'%}
+{% include 'projects/navbar.html' %}
 
 {% if messages %}
-{% for message in messages%}
+{% for message in messages %}
 <div style="text-align: center">
     <div class="alert alert--{{message.tags}}">
         <p class="alert__message">{{ message }}</p>
@@ -32,12 +32,12 @@
     </div>
 </div>
 {% endfor %}
-
 {% endif %}
 
-{%block content%}{%endblock%}
+{% block content %}{% endblock %}
 
 <script src="{% static 'uikit/app.js' %}"></script>
+
 </body>
 
 </html>

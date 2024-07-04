@@ -6,7 +6,7 @@ class Project(models.Model):
     owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, blank=True, null=True)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    featured_image = models.ImageField(blank=True, default="default.jpg", upload_to="projects/%Y/%m/%d/")
+    featured_image = models.ImageField(default="default.jpg", upload_to="projects/%Y/%m/%d/")
     demo_link = models.CharField(max_length=2000, blank=True)
     source_link = models.CharField(max_length=2000, blank=True)
     tags = models.ManyToManyField('Tag', blank=True)
@@ -24,3 +24,4 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.name
+
