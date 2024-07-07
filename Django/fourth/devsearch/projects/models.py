@@ -17,6 +17,9 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        ordering = ['created']
+
 
 class Tag(models.Model):
     name = models.CharField(max_length=200)
@@ -25,3 +28,20 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+
+class Review(models.Model):
+    VOTE_TYPE = (
+        ('up', 'UP Vote'),
+        ('down', 'Down Vote')
+    )
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    body = models.TextField(blank=True)
+    value = models.CharField(max_length=50, choices=VOTE_TYPE)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.value
+
+    class Meta:
+        unique_together = [['owner', 'project']]
